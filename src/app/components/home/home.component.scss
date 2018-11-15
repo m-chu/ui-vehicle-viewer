@@ -7,7 +7,8 @@
   align-items: center;
   justify-content: center;
   padding: 30px;
-  overflow-x: hidden;
+  overflow: hidden;
+  animation: fade-in 1s forwards;
 }
 
 .main-display {
