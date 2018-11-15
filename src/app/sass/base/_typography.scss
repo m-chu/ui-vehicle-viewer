@@ -1,17 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Barlow:400,500,700');
 
+$primary-typeface: 'Barlow', sans-serif;
+
 h1, h2, h3, h4, h5, h6, p, li, label, input, button {
-  font-family: 'Barlow', sans-serif;
+  font-family: $primary-typeface;
+  font-weight: 400;
 }
 
 h1 {
-  font-size: 2.25rem;
+  font-size: 2rem;
+  font-weight: 500;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
 }
 
 h3 {
-  font-size: 1.75rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.title {
+  font-weight: 700
 }

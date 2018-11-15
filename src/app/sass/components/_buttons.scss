@@ -1,0 +1,9 @@
+@import '../utils/_variables.scss';
+
+.btn {
+  padding: 6px 12px;
+  background-color: $royal-pink;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+}
