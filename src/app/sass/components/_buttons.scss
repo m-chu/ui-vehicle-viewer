@@ -6,4 +6,9 @@
   color: #fff;
   text-transform: uppercase;
   cursor: pointer;
+
+  &:disabled {
+    background-color: $light-gray;
+    cursor: default;
+  }
 }
