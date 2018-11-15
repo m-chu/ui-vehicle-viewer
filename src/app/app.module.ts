@@ -1,7 +1,8 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Angular Material Component Modules
@@ -24,6 +25,9 @@ import {
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 
+// Services
+import { VehicleService } from './services/vehicle.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +36,7 @@ import { HomeComponent } from './components/home/home.component';
   imports: [
     AppRoutingModule,
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -50,7 +55,9 @@ import { HomeComponent } from './components/home/home.component';
     MatTooltipModule,
     MatTabsModule
   ],
-  providers: [],
+  providers: [
+    VehicleService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
