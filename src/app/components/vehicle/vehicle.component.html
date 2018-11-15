@@ -1,74 +1,96 @@
-<section class="vehicle">
-  <button class="btn" type="button" (click)="getVehicleData()">Get Data</button>
-
-  <form [formGroup]="vehicleForm">
-    <section formGroupName="vehicleInfo">
-      <h2>Vehicle Information</h2>
-      <mat-form-field floatLabel="always">
-        <mat-label>Year</mat-label>
-        <input matInput
-               formControlName="vehicleYear"
-               type="text"
-               readonly>
-      </mat-form-field>
-      <mat-form-field floatLabel="always">
-        <mat-label>Model</mat-label>
-        <input matInput
-               formControlName="vehicleModel"
-               type="text"
-               readonly>
-      </mat-form-field>
-      <mat-form-field floatLabel="always">
-        <mat-label>Model Number</mat-label>
-        <input matInput
-               formControlName="modelNumber"
-               type="text"
-               readonly>
-      </mat-form-field>
-      <mat-form-field floatLabel="always">
-        <mat-label>VIN</mat-label>
-        <input matInput
-               formControlName="vin"
-               type="text"
-               readonly>
-      </mat-form-field>
-      <mat-form-field floatLabel="always">
-        <mat-label>Make</mat-label>
-        <input matInput
-               formControlName="vehicleMake"
-               type="text"
-               readonly>
-      </mat-form-field>
+<section class="vehicle-container">
+  <form [formGroup]="vehicleForm"
+        class="form">
+    <button class="btn"
+            type="button"
+            (click)="getVehicleData()">
+      Refresh Data
+    </button>
+    <section class="form-group"
+             formGroupName="vehicleInfo">
+      <h2 class="title">Vehicle Information</h2>
+      <div class="form-input-grid">
+        <mat-form-field floatLabel="always">
+          <mat-label>VIN</mat-label>
+          <input matInput
+                 formControlName="vin"
+                 placeholder="- -"
+                 type="text"
+                 readonly>
+        </mat-form-field>
+        <mat-form-field floatLabel="always">
+          <mat-label>Year</mat-label>
+          <input matInput
+                 formControlName="vehicleYear"
+                 placeholder="- -"
+                 type="text"
+                 readonly>
+        </mat-form-field>
+        <mat-form-field floatLabel="always">
+          <mat-label>Make</mat-label>
+          <input matInput
+                 formControlName="vehicleMake"
+                 placeholder="- -"
+                 type="text"
+                 readonly>
+        </mat-form-field>
+        <mat-form-field floatLabel="always">
+          <mat-label>Model</mat-label>
+          <input matInput
+                 formControlName="vehicleModel"
+                 placeholder="- -"
+                 type="text"
+                 readonly>
+        </mat-form-field>
+        <mat-form-field floatLabel="always">
+          <mat-label>Model Number</mat-label>
+          <input matInput
+                 formControlName="modelNumber"
+                 placeholder="- -"
+                 type="text"
+                 readonly>
+        </mat-form-field>
+      </div>
     </section>
 
-    <section formGroupName="vehiclePricing">
-      <h2>Vehicle Pricing</h2>
-      <mat-form-field floatLabel="always">
-        <mat-label><mat-icon>edit</mat-icon> Discount</mat-label>
-        <input matInput
-               formControlName="discount"
-               type="text">
-      </mat-form-field>
-      <mat-form-field floatLabel="always">
-        <mat-label><mat-icon>edit</mat-icon> MSRP</mat-label>
-        <input matInput
-               formControlName="msrp"
-               type="text">
-      </mat-form-field>
-      <mat-form-field floatLabel="always">
-        <mat-label><mat-icon>edit</mat-icon> Purchase Price</mat-label>
-        <input matInput
-               formControlName="purchasePrice"
-               type="text">
-      </mat-form-field>
-      <mat-form-field floatLabel="always">
-        <mat-label><mat-icon>edit</mat-icon> Rebate</mat-label>
-        <input matInput
-               formControlName="rebate"
-               type="text">
-      </mat-form-field>
+    <section class="form-group"
+             formGroupName="vehiclePricing">
+      <h2 class="title">Vehicle Pricing</h2>
+      <div class="form-input-grid">
+        <mat-form-field floatLabel="always">
+          <mat-label>Discount</mat-label>
+          <input matInput
+                 formControlName="discount"
+                 placeholder="- -"
+                 type="text">
+        </mat-form-field>
+        <mat-form-field floatLabel="always">
+          <mat-label>MSRP</mat-label>
+          <input matInput
+                 formControlName="msrp"
+                 placeholder="- -"
+                 type="text">
+        </mat-form-field>
+        <mat-form-field floatLabel="always">
+          <mat-label>Purchase Price</mat-label>
+          <input matInput
+                 formControlName="purchasePrice"
+                 placeholder="- -"
+                 type="text">
+        </mat-form-field>
+        <mat-form-field floatLabel="always">
+          <mat-label>Rebate</mat-label>
+          <input matInput
+                 formControlName="rebate"
+                 placeholder="- -"
+                 type="text">
+        </mat-form-field>
+      </div>
+      <button class="btn"
+              type="button"
+              (click)="updateVehiclePriceData()">
+        Update Pricing
+      </button>
     </section>
   </form>
-
-  <button class="btn" type="button" (click)="updateVehiclePriceData()">Update</button>
 </section>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { VehicleService } from '../../services/vehicle.service';
 
@@ -7,9 +7,8 @@ import { VehicleService } from '../../services/vehicle.service';
   templateUrl: './vehicle.component.html',
   styleUrls: ['./vehicle.component.scss']
 })
-export class VehicleComponent {
+export class VehicleComponent implements OnInit {
   userId: string = 'chuMike';
-  vehicleData;
   vehicleForm: FormGroup;
 
   constructor(
@@ -18,26 +17,29 @@ export class VehicleComponent {
   ) {
     this.vehicleForm = this.formBuilder.group({
       vehiclePricing: this.formBuilder.group({
-        discount: '-',
-        msrp: '-',
-        purchasePrice: '-',
-        rebate: '-'
+        discount: '',
+        msrp: '',
+        purchasePrice: '',
+        rebate: ''
       }),
       vehicleInfo: this.formBuilder.group({
-        vehicleYear: '-',
-        vehicleModel: '-',
-        modelNumber: '-',
-        vin: '-',
-        vehicleMake: '-'
+        vehicleYear: '',
+        vehicleModel: '',
+        modelNumber: '',
+        vin: '',
+        vehicleMake: ''
       })
     });
+  }
+
+  ngOnInit() {
+    this.getVehicleData();
   }
 
   getVehicleData() {
     this.vehicleSvc.getVehicleData(this.userId).subscribe(data => {
       if (data) {
         this.vehicleForm.patchValue(data);
-        console.log('Data Retrieved.');
       }
     });
   }
@@ -45,7 +47,6 @@ export class VehicleComponent {
   updateVehiclePriceData() {
     let vehiclePricing = Object.assign(this.vehicleForm.value.vehiclePricing, {'userId': this.userId});
     this.vehicleSvc.updateVehiclePriceData(vehiclePricing).subscribe(() => {
-      console.log('Data Updated.');
       this.getVehicleData();
     });
   }
