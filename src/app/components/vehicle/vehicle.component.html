@@ -58,36 +58,45 @@
       <h2 class="title">Vehicle Pricing</h2>
       <div class="form-input-grid">
         <mat-form-field floatLabel="always">
-          <mat-label>Discount</mat-label>
-          <input matInput
-                 formControlName="discount"
+          <mat-label>Purchase Price</mat-label>
+          <input #purchasePrice matInput
+                 formControlName="purchasePrice"
                  placeholder="- -"
-                 type="text">
+                 type="number">
+          <span matPrefix>$&nbsp;</span>
+          <mat-error>Enter a numerical value of 0 or greater.</mat-error>
         </mat-form-field>
         <mat-form-field floatLabel="always">
           <mat-label>MSRP</mat-label>
           <input matInput
                  formControlName="msrp"
                  placeholder="- -"
-                 type="text">
+                 type="number">
+          <span matPrefix>$&nbsp;</span>
+          <mat-error>Enter a numerical value of 0 or greater.</mat-error>
         </mat-form-field>
         <mat-form-field floatLabel="always">
-          <mat-label>Purchase Price</mat-label>
+          <mat-label>Discount</mat-label>
           <input matInput
-                 formControlName="purchasePrice"
+                 formControlName="discount"
                  placeholder="- -"
-                 type="text">
+                 type="number">
+          <span matPrefix>$&nbsp;</span>
+          <mat-error>Enter a numerical value of 0 or greater.</mat-error>
         </mat-form-field>
         <mat-form-field floatLabel="always">
           <mat-label>Rebate</mat-label>
           <input matInput
                  formControlName="rebate"
                  placeholder="- -"
-                 type="text">
+                 type="number">
+          <span matPrefix>$&nbsp;</span>
+          <mat-error>Enter a numerical value of 0 or greater.</mat-error>
         </mat-form-field>
       </div>
       <button class="btn"
               type="button"
+              [disabled]="!vehicleForm.valid"
               (click)="updateVehiclePriceData()">
         Update Pricing
       </button>

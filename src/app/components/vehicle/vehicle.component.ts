@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { VehicleService } from '../../services/vehicle.service';
 
 @Component({
@@ -17,10 +17,22 @@ export class VehicleComponent implements OnInit {
   ) {
     this.vehicleForm = this.formBuilder.group({
       vehiclePricing: this.formBuilder.group({
-        discount: '',
-        msrp: '',
-        purchasePrice: '',
-        rebate: ''
+        discount: ['', [
+          Validators.required,
+          nonNegativeNumberValidator
+        ]],
+        msrp: ['', [
+          Validators.required,
+          nonNegativeNumberValidator
+        ]],
+        purchasePrice: ['', [
+          Validators.required,
+          nonNegativeNumberValidator
+        ]],
+        rebate: ['', [
+          Validators.required,
+          nonNegativeNumberValidator
+        ]]
       }),
       vehicleInfo: this.formBuilder.group({
         vehicleYear: '',
@@ -51,4 +63,12 @@ export class VehicleComponent implements OnInit {
     });
   }
 
+}
+
+// Custom Form Validator Functions
+export function nonNegativeNumberValidator(): ValidatorFn {
+  return (control: AbstractControl): {[key: string]: any} | null => {
+    const nonNumber = new RegExp('[^0-9]');
+    return nonNumber.test(control.value) ? {'nonPositiveNumber': {value: control.value}} : null;
+  };
 }

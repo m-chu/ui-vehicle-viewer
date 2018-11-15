@@ -20,6 +20,7 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 30px;
+    margin-bottom: 10px;
 
     @media screen and (min-width: 500px) {
       grid-template-columns: 1fr 1fr;
@@ -43,5 +44,11 @@ mat-form-field {
 
   input {
     text-transform: uppercase;
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      display: none;
+    }
   }
 }
