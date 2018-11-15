@@ -2,10 +2,15 @@
 
 .navbar {
   height: 60px;
-  padding: 0 30px;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   background-color: $dark-gray;
+  transition: padding 0.5s;
+
+  @media screen and (min-width: 500px) {
+    padding: 0 30px;
+  }
 }
 
 .nav-menu {
@@ -24,9 +29,9 @@
 }
 
 .logo {
-  height: 36px;
-  width: 36px;
-  min-width: 36px;
+  height: 30px;
+  width: 30px;
+  min-width: 30px;
   display: flex;
   justify-content: center;
   margin-right: 10px;
@@ -37,12 +42,27 @@
     height: auto;
     width: auto;
     color: $royal-pink;
-    font-size: 2rem;
+    font-size: 1.625rem;
+  }
+
+  @media screen and (min-width: 500px) {
+    height: 36px;
+    width: 36px;
+    min-width: 36px;
+
+    &__icon {
+      font-size: 2rem;
+    }
   }
 }
 
 .title {
   padding-bottom: 2px;
   color: #fff;
+  font-size: 1.5rem;
   text-transform: uppercase;
+
+  @media screen and (min-width: 500px) {
+    font-size: 2rem;
+  }
 }
