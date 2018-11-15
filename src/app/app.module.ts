@@ -28,12 +28,14 @@ import { HomeComponent } from './components/home/home.component';
 
 // Services
 import { VehicleService } from './services/vehicle.service';
+import { VehicleComponent } from './components/vehicle/vehicle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    VehicleComponent
   ],
   imports: [
     AppRoutingModule,
