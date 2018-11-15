@@ -1,27 +1,35 @@
-# VehicleCodeChallenge
+# Vehicle Code Challenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
+**UI Build & REST API Consumption**
 
-## Development server
+**By Mike Chu**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Description
 
-## Code scaffolding
+A limited UI build incorporating minimal REST API data for a fictitious automobile service.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Setup/Installation Requirements
 
-## Build
+### I. Node & NPM Installs
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+1. Install Node.js on local machine.
 
-## Running unit tests
+2. Install TypeScript globally: `npm install -g typescript`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Install Angular CLI globally: `npm install -g @angular/cli@1.7.4`
 
-## Running end-to-end tests
+### II. Project Setup
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+1. Clone repository and navigate to project root.
 
-## Further help
+2. Run `npm install` in project root to load required packages.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### III. View Project
+
+1. In project root, run `ng serve --open` to view project in development mode.
+
+## Technologies Used
+
+* Angular
+* JavaScript
+* TypeScript
