@@ -2,21 +2,78 @@
 
 .home {
   min-height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 30px;
+  overflow-x: hidden;
+}
+
+.main-display {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 }
 
 .title {
-  margin-bottom: 10px;
-  font-size: 3em;
+  margin: 15px 0 20px;
+  font-size: 1.75rem;
   text-align: center;
   text-transform: uppercase;
+
+  @media screen and (min-width: 500px) {
+    padding-bottom: 4px;
+    text-shadow: 0 0 6px #fff;
+    font-size: 3rem;
+    line-height: 2rem;
+  }
 }
 
 .sub-title {
-  font-size: 1.25rem;
+  font-size: 1rem;
   text-transform: uppercase;
+
+  @media screen and (min-width: 500px) {
+    font-size: 1.25rem;
+  }
+}
+
+.vehicle-visual {
+  height: 250px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  animation: rotate 12s linear reverse infinite;
+}
+
+.vehicle {
+  height: auto;
+  width: auto;
+  position: absolute;
+  color: $royal-pink;
+  font-size: 3rem;
+  animation: bounce 0.25s linear infinite;
+}
+
+.vehicle-path {
+  height: 250px;
+  width: 250px;
+  border-radius: 100%;
+  border: 3px dashed $light-gray;
+  animation: rotate 6s linear infinite;
+}
+
+@keyframes bounce {
+  0% {top: -35px;}
+  50% {top: -39px;}
+  100% {top: -35px;}
+}
+
+@keyframes rotate {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(-359deg);}
 }
