@@ -1,10 +1,14 @@
-html, body, ul, ol, li, button,
+html, body, section, div, ul, ol, li, button,
 h1, h2, h3, h4, h5, h6, p {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
+}
+
+html, body {
+  height: 100%;
 }
 
 li {
