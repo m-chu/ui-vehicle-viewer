@@ -1,0 +1,48 @@
+@import '../../sass/utils/_variables.scss';
+
+.navbar {
+  height: 60px;
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  background-color: $dark-gray;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    &-link {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.logo {
+  height: 36px;
+  width: 36px;
+  min-width: 36px;
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+  border-radius: 100%;
+  background-color: #fff;
+
+  &__icon {
+    height: auto;
+    width: auto;
+    color: $royal-pink;
+    font-size: 2rem;
+  }
+}
+
+.title {
+  padding-bottom: 2px;
+  color: #fff;
+  text-transform: uppercase;
+}

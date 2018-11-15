@@ -23,6 +23,7 @@ import {
 
 // Components
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 
 // Services
@@ -31,6 +32,7 @@ import { VehicleService } from './services/vehicle.service';
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
     HomeComponent
   ],
   imports: [
