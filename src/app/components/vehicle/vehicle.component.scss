@@ -40,9 +40,11 @@
 }
 
 mat-form-field {
+  min-width: 100px;
   font-family: $primary-typeface;
 
   input {
+    min-width: 100px;
     text-transform: uppercase;
     -moz-appearance: textfield;
 
