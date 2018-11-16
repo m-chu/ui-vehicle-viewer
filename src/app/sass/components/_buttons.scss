@@ -2,13 +2,36 @@
 
 .btn {
   padding: 6px 12px;
-  background-color: $royal-pink;
-  color: #fff;
   text-transform: uppercase;
+  transition: background-color 0.2s, color 0.2s;
   cursor: pointer;
 
+  &_pink {
+    border: 2px solid $royal-pink;
+    background-color: $royal-pink;
+    color: #fff;
+
+    &:hover {
+      background-color: #fff;
+      color: $royal-pink;
+    }
+  }
+
+  &_dark {
+    border: 2px solid $medium-gray;
+    background-color: $medium-gray;
+    color: #fff;
+
+    &:hover {
+      background-color: #fff;
+      color: $medium-gray;
+    }
+  }
+
   &:disabled {
+    border: 2px solid $light-gray;
     background-color: $light-gray;
+    color: #fff;
     cursor: default;
   }
 }

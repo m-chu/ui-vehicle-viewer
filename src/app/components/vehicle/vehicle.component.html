@@ -1,16 +1,10 @@
 <section class="vehicle-container">
   <form [formGroup]="vehicleForm"
         class="form">
-    <button class="btn"
+    <button class="btn btn_pink"
             type="button"
             (click)="getVehicleData()">
       Refresh Data
-    </button>
-
-    <button class="btn"
-            type="button"
-            (click)="vehicleData = {}; vehicleForm.reset()">
-      Clear
     </button>
 
     <section class="panel">
@@ -112,11 +106,18 @@
           <mat-error>Enter a numerical value of 0 or greater.</mat-error>
         </mat-form-field>
       </div>
-      <button class="btn"
+      <button class="btn btn_pink save-btn"
               type="button"
               [disabled]="!vehicleForm.valid || vehicleForm.pristine"
               (click)="updateVehiclePriceData()">
         Save
+      </button>
+
+      <button *ngIf="vehicleForm.dirty"
+              class="btn btn_dark"
+              type="button"
+              (click)="getVehicleData()">
+        Clear
       </button>
     </section>
   </form>
