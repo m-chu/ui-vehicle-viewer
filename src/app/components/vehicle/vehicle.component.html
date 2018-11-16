@@ -6,57 +6,75 @@
             (click)="getVehicleData()">
       Refresh Data
     </button>
-    <section class="form-group"
-             formGroupName="vehicleInfo">
-      <h2 class="title">Vehicle Information</h2>
-      <div class="form-input-grid">
-        <mat-form-field floatLabel="always">
-          <mat-label>VIN</mat-label>
-          <input matInput
-                 formControlName="vin"
-                 placeholder="- -"
-                 type="text"
-                 readonly>
-        </mat-form-field>
-        <mat-form-field floatLabel="always">
-          <mat-label>Year</mat-label>
-          <input matInput
-                 formControlName="vehicleYear"
-                 placeholder="- -"
-                 type="text"
-                 readonly>
-        </mat-form-field>
-        <mat-form-field floatLabel="always">
-          <mat-label>Make</mat-label>
-          <input matInput
-                 formControlName="vehicleMake"
-                 placeholder="- -"
-                 type="text"
-                 readonly>
-        </mat-form-field>
-        <mat-form-field floatLabel="always">
-          <mat-label>Model</mat-label>
-          <input matInput
-                 formControlName="vehicleModel"
-                 placeholder="- -"
-                 type="text"
-                 readonly>
-        </mat-form-field>
-        <mat-form-field floatLabel="always">
-          <mat-label>Model Number</mat-label>
-          <input matInput
-                 formControlName="modelNumber"
-                 placeholder="- -"
-                 type="text"
-                 readonly>
-        </mat-form-field>
+
+    <button class="btn"
+            type="button"
+            (click)="vehicleData = {}; vehicleForm.reset()">
+      Clear
+    </button>
+
+    <section class="panel">
+      <h2 class="title title_dark">
+        <mat-icon class="title__icon">build</mat-icon>
+        Vehicle Information
+      </h2>
+
+      <section class="grid">
+        <div class="text-field">
+          <h3 class="text-field__title">VIN</h3>
+          <p>{{vehicleData?.vin || '- -'}}</p>
+        </div>
+        <div class="text-field">
+          <h3 class="text-field__title">Year</h3>
+          <p>{{vehicleData?.vehicleYear || '- -'}}</p>
+        </div>
+        <div class="text-field">
+          <h3 class="text-field__title">Make</h3>
+          <p>{{vehicleData?.vehicleMake || '- -'}}</p>
+        </div>
+        <div class="text-field">
+          <h3 class="text-field__title">Model</h3>
+          <p>{{vehicleData?.vehicleModel || '- -'}}</p>
+        </div>
+        <div class="text-field">
+          <h3 class="text-field__title">Model Number</h3>
+          <p>{{vehicleData?.modelNumber || '- -'}}</p>
+        </div>
+      </section>
+
+      <h2 class="title title_dark">
+        <mat-icon class="title__icon">shopping_cart</mat-icon>
+        Vehicle Pricing
+      </h2>
+
+      <div class="grid">
+        <div class="text-field">
+          <h3 class="text-field__title">Purchase Price</h3>
+          <p>{{(vehicleData?.purchasePrice | currency) || '- -'}}</p>
+        </div>
+        <div class="text-field">
+          <h3 class="text-field__title">MSRP</h3>
+          <p>{{(vehicleData?.msrp | currency) || '- -'}}</p>
+        </div>
+        <div class="text-field">
+          <h3 class="text-field__title">Discount</h3>
+          <p>{{(vehicleData?.discount | currency) || '- -'}}</p>
+        </div>
+        <div class="text-field">
+          <h3 class="text-field__title">Rebate</h3>
+          <p>{{(vehicleData?.rebate | currency) || '- -'}}</p>
+        </div>
       </div>
     </section>
 
-    <section class="form-group"
-             formGroupName="vehiclePricing">
-      <h2 class="title">Vehicle Pricing</h2>
-      <div class="form-input-grid">
+    <section class="panel">
+      <h2 class="title">
+        <mat-icon class="title__icon">edit</mat-icon>
+        Update Pricing
+      </h2>
+
+      <div class="grid"
+           formGroupName="vehiclePricing">
         <mat-form-field floatLabel="always">
           <mat-label>Purchase Price</mat-label>
           <input #purchasePrice matInput
@@ -98,7 +116,7 @@
               type="button"
               [disabled]="!vehicleForm.valid || vehicleForm.pristine"
               (click)="updateVehiclePriceData()">
-        Update Pricing
+        Save
       </button>
     </section>
   </form>
