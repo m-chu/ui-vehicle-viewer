@@ -28,8 +28,13 @@ A limited UI build incorporating minimal REST API data for a fictitious automobi
 
 1. In project root, run `ng serve --open` to view project in development mode.
 
+## Attributions
+
+1. *Material Design Icons* by Google.
+
 ## Technologies Used
 
 * Angular
 * JavaScript
 * TypeScript
+* Angular Material
