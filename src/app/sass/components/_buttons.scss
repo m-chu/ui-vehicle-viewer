@@ -28,11 +28,17 @@
     }
   }
 
+  &:focus, &:active {
+    outline: 2px dashed white;
+    outline-offset: -5px;
+  }
+
   &:disabled {
     border: 2px solid $light-gray;
     background-color: $light-gray;
     color: #fff;
     cursor: default;
+    outline: none;
   }
 }
 

@@ -22,3 +22,8 @@ a {
 :focus {
   outline: 0;
 }
+
+// Mozilla Resets
+button::-moz-focus-inner {
+  border: 0;
+}
