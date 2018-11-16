@@ -29,7 +29,6 @@
 }
 
 .panel {
-  position: relative;
   margin-bottom: 30px;
   padding: 25px;
   box-shadow: 0 1px 4px $light-gray;
@@ -63,14 +62,15 @@
 
 .save-message {
   opacity: 0;
+  height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 22px;
-  padding: 15px;
+  margin-bottom: 0;
+  padding: 0 15px;
   box-shadow: 0 1px 4px $light-gray;
   background-color: #f6f6f6;
-  transition: opacity 0.5s;
+  transition: all 0.5s;
 
   &__icon {
     color: $success-green;
@@ -84,10 +84,14 @@
     text-transform: uppercase;
   }
 
+  &_expand {
+    opacity: 1;
+    height: 50px;
+    margin-bottom: 30px;
+    padding: 15px;
+  }
+
   @media screen and (min-width: 500px) {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
   }
 }
 
