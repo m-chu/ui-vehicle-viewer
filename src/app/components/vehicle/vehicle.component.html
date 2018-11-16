@@ -67,12 +67,6 @@
       </div>
     </section>
 
-    <section [ngClass]="{'save-message_expand': saveSuccess && vehicleForm.pristine}"
-             class="save-message">
-      <mat-icon class="save-message__icon">check_circle_outline</mat-icon>
-      <p class="save-message__text">Update Successful!</p>
-    </section>
-
     <section *ngIf="vehicleDisplayData"
              class="panel">
       <h2 class="title">
@@ -134,6 +128,12 @@
           Cancel
         </button>
       </div>
+    </section>
+
+    <section [ngClass]="{'save-message_expand': saveSuccess && vehicleForm.pristine}"
+             class="save-message">
+      <mat-icon class="save-message__icon">check_circle_outline</mat-icon>
+      <p class="save-message__text">Update Successful!</p>
     </section>
   </form>
 </section>

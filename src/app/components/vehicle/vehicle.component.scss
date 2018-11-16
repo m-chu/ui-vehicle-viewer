@@ -9,7 +9,9 @@
 .form {
   width: 100%;
   max-width: 1000px;
+  position: relative;
   margin: auto;
+  padding-bottom: 50px;
 }
 
 .title {
@@ -63,10 +65,12 @@
 .save-message {
   opacity: 0;
   height: 0;
+  width: 100%;
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0;
+  margin: 0 auto;
   padding: 0 15px;
   box-shadow: 0 1px 4px $light-gray;
   background-color: #f6f6f6;
