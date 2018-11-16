@@ -4,7 +4,13 @@
     <button class="btn btn_pink"
             type="button"
             (click)="getVehicleData()">
-      Refresh Data
+      Refresh
+    </button>
+
+    <button class="btn btn_pink"
+            type="button"
+            (click)="resetDisplay()">
+      Clear Display
     </button>
 
     <section class="panel">
@@ -13,26 +19,26 @@
         Vehicle Information
       </h2>
 
-      <section class="grid grid-col-3">
+      <section class="grid">
         <div class="text-field">
           <h3 class="text-field__title">VIN</h3>
-          <p>{{vehicleData?.vin || '- -'}}</p>
+          <p>{{vehicleDisplayData?.vin || '- -'}}</p>
         </div>
         <div class="text-field">
           <h3 class="text-field__title">Year</h3>
-          <p>{{vehicleData?.vehicleYear || '- -'}}</p>
+          <p>{{vehicleDisplayData?.vehicleYear || '- -'}}</p>
         </div>
         <div class="text-field">
           <h3 class="text-field__title">Make</h3>
-          <p>{{vehicleData?.vehicleMake || '- -'}}</p>
+          <p>{{vehicleDisplayData?.vehicleMake || '- -'}}</p>
         </div>
         <div class="text-field">
           <h3 class="text-field__title">Model</h3>
-          <p>{{vehicleData?.vehicleModel || '- -'}}</p>
+          <p>{{vehicleDisplayData?.vehicleModel || '- -'}}</p>
         </div>
         <div class="text-field">
           <h3 class="text-field__title">Model Number</h3>
-          <p>{{vehicleData?.modelNumber || '- -'}}</p>
+          <p>{{vehicleDisplayData?.modelNumber || '- -'}}</p>
         </div>
       </section>
 
@@ -41,33 +47,34 @@
         Vehicle Pricing
       </h2>
 
-      <div class="grid grid-col-3">
+      <div class="grid">
         <div class="text-field">
           <h3 class="text-field__title">Purchase Price</h3>
-          <p>{{(vehicleData?.purchasePrice | currency) || '- -'}}</p>
+          <p>{{(vehicleDisplayData?.purchasePrice | currency) || '- -'}}</p>
         </div>
         <div class="text-field">
           <h3 class="text-field__title">MSRP</h3>
-          <p>{{(vehicleData?.msrp | currency) || '- -'}}</p>
+          <p>{{(vehicleDisplayData?.msrp | currency) || '- -'}}</p>
         </div>
         <div class="text-field">
           <h3 class="text-field__title">Discount</h3>
-          <p>{{(vehicleData?.discount | currency) || '- -'}}</p>
+          <p>{{(vehicleDisplayData?.discount | currency) || '- -'}}</p>
         </div>
         <div class="text-field">
           <h3 class="text-field__title">Rebate</h3>
-          <p>{{(vehicleData?.rebate | currency) || '- -'}}</p>
+          <p>{{(vehicleDisplayData?.rebate | currency) || '- -'}}</p>
         </div>
       </div>
     </section>
 
-    <section class="panel">
+    <section *ngIf="vehicleDisplayData"
+             class="panel">
       <h2 class="title">
         <mat-icon class="title__icon">edit</mat-icon>
         Update Pricing
       </h2>
 
-      <div class="grid grid-col-3"
+      <div class="grid"
            formGroupName="vehiclePricing">
         <mat-form-field floatLabel="always">
           <mat-label>Purchase Price</mat-label>
@@ -109,7 +116,7 @@
 
       <div class="btn-group">
         <button class="btn btn_pink"
-                type="submit"
+                type="button"
                 [disabled]="!vehicleForm.valid || vehicleForm.pristine"
                 (click)="updateVehiclePriceData()">
           Save
@@ -122,7 +129,7 @@
         </button>
       </div>
 
-      <div [ngStyle]="{'animation': saveSuccess && vehicleForm.pristine ? 'fade-in 0.5s forwards' : 'fade-out 0.5s forwards'}"
+      <div [ngStyle]="{'opacity': saveSuccess && vehicleForm.pristine ? '1' : '0'}"
            class="save-message">
         <mat-icon class="save-message__icon">check_circle_outline</mat-icon>
         <p class="save-message__text">Update Successful!</p>

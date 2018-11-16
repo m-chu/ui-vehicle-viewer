@@ -10,7 +10,7 @@ import { VehicleService } from '../../services/vehicle.service';
 export class VehicleComponent implements OnInit {
   userId: string = 'chuMike';
   vehicleForm: FormGroup;
-  vehicleData;
+  vehicleDisplayData;
   saveSuccess: boolean;
 
   constructor(
@@ -72,13 +72,18 @@ export class VehicleComponent implements OnInit {
 
   // UI Display & Data Functions
   parseVehicleData() {
-    this.vehicleData = Object.assign(this.vehicleForm.value.vehicleInfo, this.vehicleForm.value.vehiclePricing);
+    this.vehicleDisplayData = Object.assign(this.vehicleForm.value.vehicleInfo, this.vehicleForm.value.vehiclePricing);
   }
 
   clearChanges() {
     this.saveSuccess = false;
     this.vehicleForm.markAsPristine();
     this.getVehicleData();
+  }
+
+  resetDisplay() {
+    this.saveSuccess = false;
+    this.vehicleDisplayData = null;
   }
 
 }
