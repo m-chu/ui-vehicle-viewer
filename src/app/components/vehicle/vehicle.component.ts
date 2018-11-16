@@ -11,6 +11,7 @@ export class VehicleComponent implements OnInit {
   userId: string = 'chuMike';
   vehicleForm: FormGroup;
   vehicleData;
+  saveSuccess: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -49,6 +50,7 @@ export class VehicleComponent implements OnInit {
     this.getVehicleData();
   }
 
+  // REST APIs through VehicleService
   getVehicleData() {
     this.vehicleSvc.getVehicleData(this.userId).subscribe(data => {
       if (data) {
@@ -62,13 +64,21 @@ export class VehicleComponent implements OnInit {
   updateVehiclePriceData() {
     let vehiclePricing = Object.assign(this.vehicleForm.value.vehiclePricing, {'userId': this.userId});
     this.vehicleSvc.updateVehiclePriceData(vehiclePricing).subscribe(() => {
+      this.saveSuccess = true;
       this.vehicleForm.markAsPristine();
       this.getVehicleData();
     });
   }
 
+  // UI Display & Data Functions
   parseVehicleData() {
     this.vehicleData = Object.assign(this.vehicleForm.value.vehicleInfo, this.vehicleForm.value.vehiclePricing);
+  }
+
+  clearChanges() {
+    this.saveSuccess = false;
+    this.vehicleForm.markAsPristine();
+    this.getVehicleData();
   }
 
 }

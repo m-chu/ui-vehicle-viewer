@@ -29,6 +29,7 @@
 }
 
 .panel {
+  position: relative;
   margin-bottom: 30px;
   padding: 25px;
   box-shadow: 0 1px 4px $light-gray;
@@ -47,6 +48,7 @@
   @media screen and (min-width: 768px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
+
 }
 
 .text-field {
@@ -59,8 +61,32 @@
   }
 }
 
-.save-btn {
-  margin-right: 5px;
+.save-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 22px;
+  padding: 15px;
+  box-shadow: 0 1px 4px $light-gray;
+  background-color: #f6f6f6;
+
+  &__icon {
+    color: $success-green;
+    margin-right: 10px;
+  }
+
+  &__text {
+    padding-bottom: 2px;
+    color: $success-green;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  @media screen and (min-width: 500px) {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+  }
 }
 
 mat-form-field {

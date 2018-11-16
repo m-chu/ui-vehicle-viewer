@@ -13,7 +13,7 @@
         Vehicle Information
       </h2>
 
-      <section class="grid">
+      <section class="grid grid-col-3">
         <div class="text-field">
           <h3 class="text-field__title">VIN</h3>
           <p>{{vehicleData?.vin || '- -'}}</p>
@@ -41,7 +41,7 @@
         Vehicle Pricing
       </h2>
 
-      <div class="grid">
+      <div class="grid grid-col-3">
         <div class="text-field">
           <h3 class="text-field__title">Purchase Price</h3>
           <p>{{(vehicleData?.purchasePrice | currency) || '- -'}}</p>
@@ -67,7 +67,7 @@
         Update Pricing
       </h2>
 
-      <div class="grid"
+      <div class="grid grid-col-3"
            formGroupName="vehiclePricing">
         <mat-form-field floatLabel="always">
           <mat-label>Purchase Price</mat-label>
@@ -106,19 +106,27 @@
           <mat-error>Enter a numerical value of 0 or greater.</mat-error>
         </mat-form-field>
       </div>
-      <button class="btn btn_pink save-btn"
-              type="button"
-              [disabled]="!vehicleForm.valid || vehicleForm.pristine"
-              (click)="updateVehiclePriceData()">
-        Save
-      </button>
 
-      <button *ngIf="vehicleForm.dirty"
-              class="btn btn_dark"
-              type="button"
-              (click)="getVehicleData()">
-        Clear
-      </button>
+      <div class="btn-group">
+        <button class="btn btn_pink"
+                type="submit"
+                [disabled]="!vehicleForm.valid || vehicleForm.pristine"
+                (click)="updateVehiclePriceData()">
+          Save
+        </button>
+        <button *ngIf="vehicleForm.dirty"
+                class="btn btn_dark"
+                type="button"
+                (click)="clearChanges()">
+          Clear
+        </button>
+      </div>
+
+      <div [ngStyle]="{'animation': saveSuccess && vehicleForm.pristine ? 'fade-in 0.5s forwards' : 'fade-out 0.5s forwards'}"
+           class="save-message">
+        <mat-icon class="save-message__icon">check_circle_outline</mat-icon>
+        <p class="save-message__text">Update Successful!</p>
+      </div>
     </section>
   </form>
 </section>
