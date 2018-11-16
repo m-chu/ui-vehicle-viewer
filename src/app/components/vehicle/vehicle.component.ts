@@ -51,6 +51,7 @@ export class VehicleComponent implements OnInit {
   getVehicleData() {
     this.vehicleSvc.getVehicleData(this.userId).subscribe(data => {
       if (data) {
+        this.vehicleForm.markAsPristine();
         this.vehicleForm.patchValue(data);
       }
     });
@@ -59,6 +60,7 @@ export class VehicleComponent implements OnInit {
   updateVehiclePriceData() {
     let vehiclePricing = Object.assign(this.vehicleForm.value.vehiclePricing, {'userId': this.userId});
     this.vehicleSvc.updateVehiclePriceData(vehiclePricing).subscribe(() => {
+      this.vehicleForm.markAsPristine();
       this.getVehicleData();
     });
   }
