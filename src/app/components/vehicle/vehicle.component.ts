@@ -96,7 +96,7 @@ export class VehicleComponent implements OnInit {
     this.saveSuccess = false;
     this.vehicleForm.markAsPristine();
     this.getLocalVehicleData(); // Local Testing Data
-    // this.getVehicleData(); // Remote Data
+    // this.getVehicleData(); // Remote Data - Obsolete
   }
 
   resetDisplay() {

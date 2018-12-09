@@ -1,12 +1,14 @@
-# Vehicle Code Challenge
+# Vehicle Viewer
 
-**UI Build & REST API Consumption**
+**Mini UI Build & REST API Consumption**
 
 **By Mike Chu**
 
 ## Description
 
-A limited UI build incorporating minimal REST API data for a fictitious automobile service.
+*CODING CHALLENGE:* A limited UI build incorporating minimal REST API data for a fictitious automobile service.
+
+- Update: Obsolete endpoints replaced with local testing data.
 
 ## Setup/Installation Requirements
 
