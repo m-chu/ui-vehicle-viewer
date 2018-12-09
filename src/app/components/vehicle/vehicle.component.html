@@ -3,7 +3,7 @@
         class="form">
     <button class="btn btn_pink"
             type="button"
-            (click)="getVehicleData()">
+            (click)="getLocalVehicleData()">
       Refresh
     </button>
 
@@ -118,7 +118,7 @@
         <button class="btn btn_pink"
                 type="button"
                 [disabled]="!vehicleForm.valid || vehicleForm.pristine"
-                (click)="updateVehiclePriceData()">
+                (click)="updateLocalVehiclePriceData()">
           Save
         </button>
         <button *ngIf="vehicleForm.dirty"

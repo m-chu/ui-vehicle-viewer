@@ -8,7 +8,7 @@ import { VehicleService } from '../../services/vehicle.service';
   styleUrls: ['./vehicle.component.scss']
 })
 export class VehicleComponent implements OnInit {
-  userId: string = 'chuMike';
+  userId: string = 'userId';
   vehicleForm: FormGroup;
   vehicleDisplayData;
   saveSuccess: boolean;
@@ -47,10 +47,27 @@ export class VehicleComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getVehicleData();
+    this.getLocalVehicleData();
   }
 
-  // REST APIs through VehicleService
+  // Local Testing Data Handling
+  getLocalVehicleData() {
+    const vehicleData = this.vehicleSvc.getLocalVehicleData();
+    console.log(vehicleData);
+    this.vehicleForm.markAsPristine();
+    this.vehicleForm.patchValue(vehicleData);
+    this.parseVehicleData();
+  }
+
+  updateLocalVehiclePriceData() {
+    let vehiclePricing = Object.assign(this.vehicleForm.value.vehiclePricing);
+    this.vehicleSvc.updateLocalVehiclePriceData(vehiclePricing);
+    this.saveSuccess = true;
+    this.vehicleForm.markAsPristine();
+    this.getLocalVehicleData();
+  }
+
+  // Remote Data Handling - Obsolete
   getVehicleData() {
     this.vehicleSvc.getVehicleData(this.userId).subscribe(data => {
       if (data) {
@@ -78,7 +95,8 @@ export class VehicleComponent implements OnInit {
   clearChanges() {
     this.saveSuccess = false;
     this.vehicleForm.markAsPristine();
-    this.getVehicleData();
+    this.getLocalVehicleData(); // Local Testing Data
+    // this.getVehicleData(); // Remote Data
   }
 
   resetDisplay() {
